@@ -1,0 +1,28 @@
+{
+  "name": "wecancode-intermediate",
+  "version": "1.0.0",
+  "author": "Kayak",
+  "private": true,
+  "dependencies": {
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-scripts": "1.1.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "server": "nodemon --exec babel-node ./src/server.js --require node_modules/ignore-styles",
+    "server:prod": "babel-node ./src/server.js --require node_modules/ignore-styles"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/node": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "create-react-app": "^2.1.1"
+  }
+}
