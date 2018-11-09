@@ -7,16 +7,13 @@
     "@material-ui/core": "^3.4.0",
     "firebase": "^5.5.7",
     "react": "^16.4.2",
-    "react-dom": "^16.4.2",
-    "react-scripts": "1.1.5"
+    "react-dom": "^16.4.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "server": "nodemon --exec babel-node ./src/server.js --require node_modules/ignore-styles",
-    "server:prod": "babel-node ./src/server.js --require node_modules/ignore-styles"
+    "eject": "react-scripts eject"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0",
@@ -25,6 +22,14 @@
     "@babel/plugin-proposal-class-properties": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
-    "create-react-app": "^2.1.1"
-  }
+    "create-react-app": "2.1.1",
+    "node-sass": "^4.10.0",
+    "react-scripts": "^2.1.1"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }

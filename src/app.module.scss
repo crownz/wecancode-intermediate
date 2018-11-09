@@ -1,0 +1,22 @@
+.app {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cardGrid {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 1024px;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.btn {
+    margin-bottom: 10px !important;
+}
