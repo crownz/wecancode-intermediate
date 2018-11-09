@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import { addTweet } from "../actions";
-import { tweetsRef } from '../config/firebase';
-
 
 export default class TweetList extends Component {
 
@@ -14,11 +12,8 @@ export default class TweetList extends Component {
         };
         addTweet(tweet);
     }
-    
+
     render() {
-        tweetsRef.on('value', snapshot => {
-            console.log(snapshot.val());
-        });
         return (
           <div className="TweetList">
             <h3>Tweet List!</h3>

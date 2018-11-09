@@ -15,11 +15,13 @@ export const removeTweet = removeTweetId => {
 };
 
 /**
- *  By doing following on method, it return live data from firebase as json object
- * (if new tweets is added, it returns new all tweets with new one automatically) 
+ *  By doing following on method, it return live data from firebase as json
+ *  (if new tweets is added, it returns new all tweets with new one automatically) 
+ *  Should be added in place where tweets will be fetched, on ComponentDidMount
+ *  needs import: 
+ *  import { tweetsRef } from '../config/firebase';
+ * 
  *  tweetsRef.on('value', snapshot => {
  *      tweets = snapshot.val();
  *  });
  */ 
-
-
