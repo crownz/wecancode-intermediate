@@ -3,6 +3,8 @@ import Modal from '@material-ui/core/Modal';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
+import { addTweet } from '../../actions';
+
 import styles from './tweet-form.module.scss';
 
 class TweetForm extends React.Component {
@@ -14,7 +16,8 @@ class TweetForm extends React.Component {
       title: false,
       description: false,
       imageUrl: false,
-    }
+    },
+    isLoading: false,
   };
 
   handleChange = name => event => {
@@ -40,7 +43,19 @@ class TweetForm extends React.Component {
       this.setState({ errors });
       return;
     }
+    this.saveTweet(title, description, imageUrl);
+
   };
+
+  saveTweet = (title, description, imageUrl) => {
+    this.setState({ isLoading: true });
+    const tweet = {
+      title,
+      text: description,
+      imgUrl: imageUrl,
+    };
+    addTweet(tweet).then(() => this.setState({ isLoading: false }, this.props.onClose));
+  }
 
   render() {
     const { isOpen, onClose } = this.props;

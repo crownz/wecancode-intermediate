@@ -4,7 +4,14 @@ import { tweetsRef } from '../config/firebase';
  * Pass new tweet as object so it will be added
  */
 export const addTweet = newTweet => {
-    tweetsRef.push().set(newTweet);
+  return new Promise((resolve, reject) => {
+    tweetsRef.push().set(newTweet, (err) => {
+      if (err) {
+        return reject(err);
+      }
+      return resolve();
+    });
+  });
 };
 
 /**
