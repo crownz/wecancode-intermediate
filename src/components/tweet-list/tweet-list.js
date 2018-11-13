@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { tweetsRef } from '../../config/firebase';
-import { removeTweet, toggleTweetLike, isTweetLiked } from '../../actions';
+import { removeTweet, toggleTweetLike, isTweetLiked, isTweetOwner } from '../../actions';
 import Card from '../card';
 
 import styles from './tweet-list.module.scss';
@@ -14,8 +14,7 @@ class TweetList extends React.Component {
   componentDidMount() {
     tweetsRef.on('value', snapshot => {
       const tweets = snapshot.val();
-      console.log('tweets:', tweets);
-      this.setState({ tweets })
+      this.setState({ tweets });
     });
   }
 
@@ -30,6 +29,7 @@ class TweetList extends React.Component {
         toggleLike={() => toggleTweetLike(id)}
         likesCount={tweets[id].likesCount}
         isLiked={isTweetLiked(tweets[id])}
+        isMine={isTweetOwner(tweets[id])}
       />
     )) : null;
   };

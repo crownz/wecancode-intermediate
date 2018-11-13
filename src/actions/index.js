@@ -26,7 +26,6 @@ export const toggleTweetLike = (tweetId) => {
   const ref = getTweetRef(tweetId);
   const userId = localStorage.getItem('userId');
   ref.transaction((tweet) => {
-    console.log('tweet:', tweet);
     if (!tweet.likes) {
       tweet.likes = {};
     }
@@ -42,3 +41,4 @@ export const toggleTweetLike = (tweetId) => {
 };
 
 export const isTweetLiked = tweet => tweet.likes && !!tweet.likes[localStorage.getItem('userId')];
+export const isTweetOwner = tweet => tweet.owner === localStorage.getItem('userId');

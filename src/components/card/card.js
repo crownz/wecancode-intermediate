@@ -5,7 +5,7 @@ import NotFavoriteIcon from '@material-ui/icons/FavoriteBorder';
 
 import styles from './card.module.scss';
 
-const Card = ({ imageSrc, title, isLiked, likesCount, onDelete, toggleLike }) => {
+const Card = ({ imageSrc, title, isLiked, isMine, likesCount, onDelete, toggleLike }) => {
   const imageStyle = { backgroundImage: `url(${imageSrc})`};
   return (
     <div className={styles.card}>
@@ -18,7 +18,7 @@ const Card = ({ imageSrc, title, isLiked, likesCount, onDelete, toggleLike }) =>
       </div>
       <div className={styles.footer}>
         <div className={styles.title}>{title}</div>
-        <DeleteIcon className={styles.delete} onClick={onDelete} />
+        {isMine && <DeleteIcon className={styles.delete} onClick={onDelete} />}
       </div>
     </div>
   );

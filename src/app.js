@@ -22,7 +22,7 @@ class App extends React.Component {
   render() {
     return (
       <div className={styles.app}>
-        <Button color="primary" variant="contained" classes={{ root: styles.btn }} onClick={this.openForm}>Add impression</Button>
+        <Button color="primary" variant="contained" classes={{ root: styles.btn }} onClick={this.openForm}>Add Tweet</Button>
         <TweetList />
         <TweetForm isOpen={this.state.isFormOpen} onClose={this.closeForm} />
       </div>
