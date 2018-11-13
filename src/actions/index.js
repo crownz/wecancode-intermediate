@@ -1,9 +1,7 @@
-import { tweetsRef } from '../config/firebase';
+import { tweetsRef, getTweetRef } from '../config/firebase';
 
-/**
- * Pass new tweet as object so it will be added
- */
 export const addTweet = newTweet => {
+  newTweet.owner = localStorage.getItem('userId');
   return new Promise((resolve, reject) => {
     tweetsRef.push().set(newTweet, (err) => {
       if (err) {
@@ -14,21 +12,27 @@ export const addTweet = newTweet => {
   });
 };
 
-/**
- *  Pass this method tweetId and following will be deleted 
- */
-export const removeTweet = removeTweetId => {
-    tweetsRef.child(removeTweetId).remove();
+export const removeTweet = (tweetId) => {
+    tweetsRef.child(tweetId).remove();
 };
 
-/**
- *  By doing following on method, it return live data from firebase as json
- *  (if new tweets is added, it returns new all tweets with new one automatically) 
- *  Should be added in place where tweets will be fetched, on ComponentDidMount
- *  needs import: 
- *  import { tweetsRef } from '../config/firebase';
- * 
- *  tweetsRef.on('value', snapshot => {
- *      tweets = snapshot.val();
- *  });
- */ 
+export const toggleTweetLike = (tweetId) => {
+  const ref = getTweetRef(tweetId);
+  const userId = localStorage.getItem('userId');
+  ref.transaction((tweet) => {
+    console.log('tweet:', tweet);
+    if (!tweet.likes) {
+      tweet.likes = {};
+    }
+
+    if (tweet.likes[userId]) {
+      delete tweet.likes[userId];
+    } else {
+      tweet.likes[userId] = true;
+    }
+    tweet.likesCount = Object.keys(tweet.likes).length;
+    return tweet;
+  });
+};
+
+export const isTweetLiked = tweet => tweet.likes && !!tweet.likes[localStorage.getItem('userId')];

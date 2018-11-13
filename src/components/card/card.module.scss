@@ -9,11 +9,19 @@
 
 .card:hover {
     .overlay {
-        opacity: 0.1;
+        opacity: 0.3;
     }
 
     .image {
         transform: scale(1.05);
+    }
+
+    .delete {
+        display: inline-block !important;
+    }
+
+    .likes {
+        display: flex;
     }
 }
 
@@ -27,6 +35,8 @@
     background-color: #000;
     border-radius: 10px;
     transition: all 0.3s ease;
+    pointer-events: none;
+    z-index: 1;
 }
 
 .imageContainer {
@@ -46,7 +56,44 @@
     transition: all 0.3s ease;
 }
 
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 30px;
+    margin-top: 4px;
+    z-index: 1;
+}
+
 .title {
     font-size: 14px;
     line-height: 22px;
+}
+
+.delete {
+    display: none !important;
+
+    &:hover {
+        color: #D50000;
+    }
+}
+
+.likes {
+    color: white;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    height: 30px;
+    align-items: center;
+    font-size: 14px;
+    display: none;
+    z-index: 1;
+
+    &:hover {
+        color: #FFCDD2;
+    }
+}
+
+.liked {
+    margin-right: 4px
 }

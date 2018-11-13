@@ -14,3 +14,4 @@ firebase.initializeApp(FirebaseConfig);
 
 const databaseRef = firebase.database().ref();
 export const tweetsRef = databaseRef.child('tweets');
+export const getTweetRef = tweetId => databaseRef.child(`tweets/${tweetId}`);
