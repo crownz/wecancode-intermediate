@@ -1,4 +1,4 @@
-## kayak-wanted
+## WE CAN CODE!
 
 # Setup
 * clone repo.
