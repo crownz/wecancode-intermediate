@@ -1,9 +1,15 @@
 import { tweetsRef, getTweetRef } from '../config/firebase';
 
 export const addTweet = newTweet => {
-  newTweet.owner = localStorage.getItem('userId');
+  const tweet = {
+    ...newTweet,
+    owner: localStorage.getItem('userId'),
+    likes: {},
+    likesCount: 0
+  };
+
   return new Promise((resolve, reject) => {
-    tweetsRef.push().set(newTweet, (err) => {
+    tweetsRef.push().set(tweet, (err) => {
       if (err) {
         return reject(err);
       }

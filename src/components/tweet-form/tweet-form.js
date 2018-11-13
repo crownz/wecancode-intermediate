@@ -52,8 +52,6 @@ class TweetForm extends React.Component {
       title,
       text: description,
       imgUrl: imageUrl,
-      likes: {},
-      likesCount: 0
     };
     addTweet(tweet).then(() => this.setState({ isLoading: false }, this.props.onClose));
   }
