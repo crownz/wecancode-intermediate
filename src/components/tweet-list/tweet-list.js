@@ -23,8 +23,9 @@ class TweetList extends React.Component {
     return tweets ? Object.keys(tweets).map(id => (
       <Card
         key={id}
-        imageSrc={tweets[id].imgUrl}
+        imageSrc={tweets[id].imageUrl}
         title={tweets[id].title}
+        description={tweets[id].description}
         onDelete={() => removeTweet(id)}
         toggleLike={() => toggleTweetLike(id)}
         likesCount={tweets[id].likesCount}
@@ -37,9 +38,7 @@ class TweetList extends React.Component {
   render() {
     return (
       <div className={styles.cardGrid}>
-        <div className={styles.cards}>
-          {this.renderTweets()}
-        </div>
+        {this.renderTweets()}
       </div>
     );
   }

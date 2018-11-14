@@ -50,8 +50,8 @@ class TweetForm extends React.Component {
     this.setState({ isLoading: true });
     const tweet = {
       title,
-      text: description,
-      imgUrl: imageUrl,
+      description,
+      imageUrl,
     };
     addTweet(tweet).then(() => this.setState({ isLoading: false }, this.props.onClose));
   }
@@ -60,10 +60,7 @@ class TweetForm extends React.Component {
     const { isOpen, onClose } = this.props;
 
     return (
-      <Modal
-        open={isOpen}
-        onClose={onClose}
-      >
+      <Modal open={isOpen} onClose={onClose}>
         <div className={styles.modal}>
           <div className={styles.form}>
             <TextField
