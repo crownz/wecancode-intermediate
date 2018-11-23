@@ -1,11 +1,23 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
+import CreateIcon from '@material-ui/icons/Create';
+import Button from '@material-ui/core/Button';
 import TweetForm from './components/tweet-form';
 import TweetList from './components/tweet-list';
 
 import styles from './app.module.scss';
 
+const theme = createMuiTheme({
+  typography: {
+    useNextVariants: true,
+  },
+  palette: {
+    primary: {
+      main: '#E91E63',
+    }
+  },
+});
 class App extends React.Component {
   state = {
     isFormOpen: false,
@@ -21,11 +33,21 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className={styles.app}>
-        <Button color="primary" variant="contained" classes={{ root: styles.btn }} onClick={this.openForm}>Add Tweet</Button>
-        <TweetList />
-        <TweetForm isOpen={this.state.isFormOpen} onClose={this.closeForm} />
-      </div>
+      <MuiThemeProvider theme={theme}>
+        <div className={styles.app}>
+          <TweetList />
+          <TweetForm isOpen={this.state.isFormOpen} onClose={this.closeForm} />
+          <Button 
+            color="primary" 
+            variant="fab" 
+            classes={{ root: styles.btn }} 
+            aria-label="Create"
+            onClick={this.openForm} 
+          >
+            <CreateIcon />
+          </Button>
+        </div>
+      </MuiThemeProvider>
     );
   }
 }

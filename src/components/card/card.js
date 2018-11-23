@@ -1,4 +1,5 @@
 import React from 'react';
+import { withTheme } from '@material-ui/core/styles';
 import DeleteIcon from '@material-ui/icons/Delete';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import NotFavoriteIcon from '@material-ui/icons/FavoriteBorder';
@@ -36,7 +37,8 @@ class Card extends React.Component {
             <div className={styles.image} style={imageStyle} />
           </div>
           <div className={styles.likes} onClick={this.likeCard}>
-            {isLiked ? <FavoriteIcon className={styles.liked} /> : <NotFavoriteIcon className={styles.liked} />} {likesCount}
+            {isLiked ? <FavoriteIcon className={likesCount > 0 ? styles.liked : ''} /> : <NotFavoriteIcon className={likesCount > 0 ? styles.liked : ''} />} 
+            <span>{likesCount}</span>
           </div>
           <div className={styles.footer}>
             <div className={styles.title}>{title}</div>
@@ -60,4 +62,4 @@ class Card extends React.Component {
   }
 }
 
-export default Card;
+export default withTheme()(Card);

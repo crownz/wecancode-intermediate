@@ -1,15 +1,23 @@
+$color-borders: #e0e0e0;
+
 .card {
     position: relative;
     display: flex;
     flex-direction: column;
+    padding: 20px;
     width: 270px;
-    padding: 10px;
+    background: white;
+    transition: transform .1s ease-out;
     cursor: pointer;
 }
 
 .card:hover {
+    transform: scale(1.03);
+    z-index: 100;
+    box-shadow: 0 0 20px 0 rgba(0,0,0,.2);
+
     .overlay {
-        opacity: 0.3;
+        opacity: 0;
     }
 
     .image {
@@ -31,8 +39,8 @@
     top: 0;
     bottom: 0;
     right: 0;
-    opacity: 0;
-    background-color: #000;
+    opacity: 0.2;
+    background-color: white;
     border-radius: 10px;
     transition: all 0.3s ease;
     pointer-events: none;
@@ -79,23 +87,31 @@
 }
 
 .likes {
-    color: white;
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    height: 30px;
-    align-items: center;
-    font-size: 14px;
     display: none;
+    position: absolute;
+    align-items: center;
+    top: 30px;
+    right: 30px;
+    height: 30px;
+    padding: 2px 6px;
+    font-size: 14px;
+    color: white;
+    background: rgba(0,0,0,.1);
+    border-radius: 6px;
+    transition: color 0.1s ease-in;
     z-index: 1;
-
+    
     &:hover {
-        color: #FFCDD2;
+        color: #FF4500;
+    }
+    
+    & > svg {
+        margin-right: 4px;
     }
 }
 
 .liked {
-    margin-right: 4px
+    animation: pulse 1s ease-in infinite running;
 }
 
 .modal {
@@ -121,4 +137,19 @@
 
 .button {
     width: 200px;
+}
+
+@keyframes pulse {
+    0% { 
+        transform: scale(1); 
+    };
+    80% { 
+        transform: scale(1); 
+    };
+    90% {
+        transform: scale(1.10);
+    }
+    100% { 
+        transform: scale(1); 
+    };
 }
