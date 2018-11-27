@@ -10,6 +10,8 @@ import styles from './footer.module.scss';
 
 class Footer extends React.Component {
 
+  // can add some actions in AppBar
+
   render() {
     return (
       <AppBar position="fixed" color="secondary" className={styles.appBar}>
