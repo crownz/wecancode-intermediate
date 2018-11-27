@@ -1,5 +1,16 @@
+.tweetListContainer {
+  position: absolute;
+  box-sizing: content-box;
+  top: 0;
+  bottom: 0;
+  margin: 92px 0;
+  height: calc(100vh - 184px);
+  overflow: scroll;
+}
+
 .cardGrid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  overflow: scroll;
 }
