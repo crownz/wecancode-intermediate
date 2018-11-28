@@ -4,6 +4,16 @@
     height: 100vh;
 }
 
+.content {
+    position: absolute;
+    box-sizing: content-box;
+    top: 0;
+    bottom: 0;
+    margin: 92px 0;
+    height: calc(100vh - 184px);
+    overflow: scroll;
+}
+
 .appTitle {
   position: relative;
   top: 0;

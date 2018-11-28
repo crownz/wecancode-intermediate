@@ -37,10 +37,8 @@ class TweetList extends React.Component {
 
   render() {
     return (
-      <div className={styles.tweetListContainer}>
-        <div className={styles.cardGrid}>
-          {this.renderTweets()}
-        </div>
+      <div className={styles.cardGrid}>
+        {this.renderTweets()}
       </div>
     );
   }

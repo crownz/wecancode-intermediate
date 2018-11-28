@@ -48,8 +48,10 @@ class App extends React.Component {
               WE CAN CODE Dream Destinations
             </Typography>
           </Header>
-          <TweetList className={styles.tweetList}/>
-          <TweetForm isOpen={this.state.isFormOpen} onClose={this.closeForm} />
+          <div className={styles.content}>
+            <TweetList className={styles.tweetList}/>
+            <TweetForm isOpen={this.state.isFormOpen} onClose={this.closeForm}/>
+          </div>
           <Footer>
             <Button
               color="primary"
